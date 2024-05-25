@@ -1,0 +1,31 @@
+.treeview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px 15px 5px 15px;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.treeview .header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.treeview .header h3 {
+    margin: 0px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    user-select: none;
+}
+
+li small {
+    cursor: pointer;
+}

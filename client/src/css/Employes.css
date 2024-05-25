@@ -1,0 +1,54 @@
+.employes {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 5px 20px 5px;
+    gap: 10px;
+}
+
+.employes .addemployee {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px 5px 15px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+.addemployee .extend {
+    height: auto;
+}
+
+.employes .addemployee .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.employes .addemployee .header h2 {
+    margin: 0px;
+}
+
+.employes .addemployee .header img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.employes .addemployee form {
+    display: flex;
+    flex-direction: column;
+}
+
+.employes .addemployee form textarea {
+    resize: vertical;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.employes .addemployee form input {
+    margin-bottom: 10px;
+    height: 30px;
+}

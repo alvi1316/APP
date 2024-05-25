@@ -1,0 +1,75 @@
+.attendance {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 5px 20px 5px;
+    gap: 10px;
+}
+
+.filtertable {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px 5px 15px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+
+.filtertable .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filtertable .header h2 {
+    margin: 0px;
+}
+
+.filtertable form {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexcol {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+}
+
+.filtertable form input:not([type='radio']) {
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.filtertable table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+.filtertable table td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.filtertable .attendanceradiobutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cpointer {
+    cursor: pointer;
+}

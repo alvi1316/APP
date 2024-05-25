@@ -1,0 +1,59 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px 15px 5px 15px;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.list .header {
+    display: flex;
+    align-items: center;
+}
+
+.list .header h3 {
+    margin: 0px;
+}
+
+.list table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.list table td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+.list table tr.clickable {
+    cursor: pointer;
+}
+
+.list table tr.clickable:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.list table img {
+    width: 20px;
+    height: 20px;
+}
+
+.list table img:hover {
+    background-color: rgb(254, 120, 120);
+}
+
+.list .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.list .pagination input{
+    width: 40px;
+}

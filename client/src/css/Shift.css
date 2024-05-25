@@ -1,0 +1,55 @@
+.shift {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 5px 20px 5px;
+    gap: 10px;
+}
+
+
+.shift .addshift {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px 5px 15px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+.shift .extend {
+    height: auto;
+}
+
+.shift .addshift .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shift .addshift .header h2 {
+    margin: 0px;
+}
+
+.shift .addshift .header img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.shift .addshift form {
+    display: flex;
+    flex-direction: column;
+}
+
+.shift .addshift form textarea {
+    resize: vertical;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.shift .addshift form input, select {
+    margin-bottom: 10px;
+    height: 30px;
+}

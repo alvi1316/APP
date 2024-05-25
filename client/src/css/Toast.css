@@ -1,0 +1,62 @@
+.toast {
+    width: 300px;
+    height: 80px;
+    z-index: 1;
+    position: fixed;
+    bottom: 20px;
+    right: -300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: right .5s ease-in-out;
+}
+
+.toast.extend {
+    right: 20px;
+    padding: 5px;
+    border: solid 1px black;
+}
+
+.toast.info {
+    background-color: rgb(204, 232, 244);
+    color: rgb(112, 150, 172);
+    border-color:  rgb(30, 120, 170);
+}
+
+.toast.success {
+    background-color: rgb(222, 242, 213);
+    color: rgb(156, 177, 148);
+    border-color:  rgb(194, 209, 189);
+}
+
+.toast.error {
+    background-color: rgb(235, 200, 196);
+    color: rgb(161, 70, 73);
+    border-color:  rgb(185, 160, 157);
+}
+
+.toast .body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.toast .body .msgwrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.toast .body .icon {
+    font-size: 30px;
+}
+
+.toast .body .msg {
+    margin: 0;
+}
+
+.toast .body .cross {
+    cursor: pointer;
+}

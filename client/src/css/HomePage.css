@@ -1,0 +1,12 @@
+.homepage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.homepage .homebodywrapper {
+    height: 100%;
+    overflow: auto;
+    display: flex;
+}

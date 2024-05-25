@@ -1,0 +1,97 @@
+.plant {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 5px 20px 5px;
+    gap: 10px;
+}
+
+.plant .addplant {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px 5px 15px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+.plant .extend {
+    height: auto;
+}
+
+.plant .addplant .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plant .addplant .header h2 {
+    margin: 0px;
+}
+
+.plant .addplant .header img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.plant .addplant form {
+    display: flex;
+    flex-direction: column;
+}
+
+.plant .addplant form textarea {
+    resize: vertical;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.plant .addplant form input, select {
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+
+.plantlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px 15px 5px 15px;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.plantlist .header {
+    display: flex;
+    align-items: center;
+}
+
+.plantlist .header h3 {
+    margin: 0px;
+}
+
+.plantlist table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.plantlist td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.plantlist .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.plantlist .pagination input{
+    width: 40px;
+}

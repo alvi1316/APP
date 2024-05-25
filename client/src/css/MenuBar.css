@@ -1,0 +1,61 @@
+.menubar {
+    height: 100%;
+    width: 50px;
+    min-width: 50px;
+    background-color: rgb(36, 33, 33);
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: solid black 2px;
+    padding: 10px;
+    transition: min-width .4s ease;
+}
+
+.extended {
+    min-width: 250px;
+    background-color: white;
+}
+
+.menubar img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.menubar a {
+    color: black;
+    text-decoration: none;
+}
+
+
+.closemenubutton {
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closemenubutton h2 {
+    margin: 0;
+}
+
+.menuitem {
+    display: flex;
+    height: 35px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+
+
+.menuitem:hover {
+    background-color: rgb(219, 219, 219);
+}

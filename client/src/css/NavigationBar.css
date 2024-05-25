@@ -1,0 +1,25 @@
+.navigationbar {
+    height: 50px;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navigationbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navigationbar .brand h3 {
+    margin: 0px;
+}
+
+.navigationbar .brand img {
+    width: 40px;
+    height: 40px;
+}
