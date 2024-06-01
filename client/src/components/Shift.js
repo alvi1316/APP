@@ -66,7 +66,7 @@ function Shift() {
     },[])
 
     let onClickRow = (str)=>{
-        console.log(str, "click")
+        
     }
 
     let onDeleteRow = (str)=>{

@@ -4,12 +4,12 @@ const UserContext = React.createContext()
 
 export const UserProvider = ({ children }) => {
 
-    let localUser= localStorage.getItem("user")
+    let localAuthData = JSON.parse(localStorage.getItem("authData"))
     
-    let [user, setUser] = useState(localUser)
+    let [authData, setAuthData] = useState(localAuthData)
 
     return (
-        <UserContext.Provider value={[user, setUser]}>
+        <UserContext.Provider value={[authData, setAuthData]}>
             {children}
         </UserContext.Provider>
     )

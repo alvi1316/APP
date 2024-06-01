@@ -17,7 +17,6 @@ function AddEmployee() {
 
     let handleOnSubmit = e => {
         e.preventDefault()
-        console.log(e.target.elements)
     }
 
     let map = [
@@ -127,7 +126,7 @@ function Employes() {
 
     
     let onClickRow = (str)=>{
-        console.log(str, "click")
+        
     }
 
     let onDeleteRow = (str)=>{

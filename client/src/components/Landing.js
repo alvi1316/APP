@@ -2,11 +2,10 @@ import { useUserContext } from "../providers/UserProvider"
 
 function Landing() {
 
-    let [user,] = useUserContext()
-
+    let [authData,] = useUserContext()
     return (
         <div>
-            {user}
+            {authData?.user?.email}
         </div>
     )
 }

@@ -3,12 +3,12 @@ import { useUserContext } from '../providers/UserProvider'
 
 function NavigationBar() {
 
-    let [, setUser] = useUserContext()
+    let [, setAuthData] = useUserContext()
     
     let handleLogout = (e) => {
         e.preventDefault()
         localStorage.clear()
-        setUser(null)
+        setAuthData(null)
     }
 
     return (
