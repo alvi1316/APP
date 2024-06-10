@@ -8,6 +8,7 @@ import Landing from '../components/Landing.js'
 import Shift from '../components/Shift.js'
 import Employes from '../components/Employes.js'
 import Attendance from '../components/Attendance.js'
+import Menu from '../components/Menu.js'
 
 function HomePage () {
     
@@ -23,6 +24,7 @@ function HomePage () {
                     <Route path='/shift/:id?' element={<Shift/>}/>
                     <Route path='/employees/:id?' element={<Employes/>}/>
                     <Route path='/attendance' element={<Attendance/>}/>
+                    <Route path='/Menu' element={<Menu/>}/>
                 </Routes>
             </div>
         </div>

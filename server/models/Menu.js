@@ -1,10 +1,10 @@
-class User {
+class Menu {
 
     constructor(data) {
         data = data ?? {}
-        this.columns = ['id', 'name', 'email', 'password', 'isdeleted', 'isadmin']
-        this.types = ['int', 'string', 'string', 'string', 'int', 'int']
-        this.tableName = 'users'
+        this.columns = ['id', 'name', 'url', 'isdeleted']
+        this.types = ['int', 'string', 'string', 'int']
+        this.tableName = 'menu'
         this.data = {}
         
         this.columns.forEach(col => {
@@ -18,4 +18,4 @@ class User {
 
 }
 
-export default User
+export default Menu

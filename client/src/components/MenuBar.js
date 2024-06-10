@@ -1,6 +1,7 @@
 import '../css/MenuBar.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useMenuContext } from '../providers/MenuProvider'
 
 function MenuBarClosed(prop) {
     return (
@@ -16,6 +17,9 @@ function MenuBarOpen(prop) {
                     <h2>Menu</h2>
                     <img onClick={prop.toggleMenu} alt='breadcrumbwhite' src={require('../images/leftarrow.png')}/>
                 </div>
+                {prop?.menuList?.map((e) => <Link key={e.id} to={e.url}><div className='menuitem'>{e.name}</div></Link>)}
+                
+                {/*
                 <Link to="/landing/"><div className='menuitem'>Home</div></Link>
                 <Link to="/landing/company/"><div className='menuitem'>Company</div></Link>
                 <Link to="/landing/plant/"><div className='menuitem'>Plant</div></Link>
@@ -27,6 +31,8 @@ function MenuBarOpen(prop) {
                 <div className='menuitem'>Inventory</div>
                 <div className='menuitem'>Approval</div>
                 <div className='menuitem'>Inspecton Sheet</div>
+                <Link to="/landing/Menu/"><div className='menuitem'>Menu</div></Link>
+                */}
             </div>
             <div>
                 <div className='menuitem'>Settings</div>
@@ -41,13 +47,14 @@ function MenuBar() {
         setExtend(prev => !prev)
     }
 
+    let [menus, ] = useMenuContext()
     let [extend, setExtend] = useState(false)
-
+    
     return (
         <div className={extend?"menubar extended":"menubar"}>
             {
                 extend
-                ?<MenuBarOpen toggleMenu={toggleMenu}/>
+                ?<MenuBarOpen toggleMenu={toggleMenu} menuList={menus}/>
                 :<MenuBarClosed toggleMenu={toggleMenu}/>
             }
         </div>

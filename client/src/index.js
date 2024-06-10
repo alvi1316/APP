@@ -5,6 +5,7 @@ import App from './App';
 import { UserProvider } from './providers/UserProvider';
 import { ToastProvider } from './providers/ToastProvider'
 import { BrowserRouter } from 'react-router-dom';
+import { MenuProvider } from './providers/MenuProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,9 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <ToastProvider>
-          <App />
+          <MenuProvider>
+            <App />
+          </MenuProvider>
         </ToastProvider>
       </UserProvider>
     </BrowserRouter>

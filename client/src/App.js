@@ -6,8 +6,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import NotFoundPage from './pages/notfound.js';
 import HomePage from './pages/home.js';
 import Toast from './components/Toast.js';
-import { useEffect } from 'react';
-import { SERVER_URL } from './utils/Constants.js';
 
 function LoginRoute() {
   return (
@@ -32,26 +30,7 @@ function HomeRoute() {
 
 function App() {
 
-  let [authData, setAuthData] = useUserContext()
-
-  useEffect(() => {
-    fetch(SERVER_URL+"/auth/verify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "authorization": `bearer ${authData?.token}`
-      }
-    })
-    .then(res => {
-      if(res.status !== 202) {
-        throw new Error()
-      }
-    })
-    .catch((e) => {
-      localStorage.clear()
-      setAuthData(null)
-    })
-  },[authData?.token])
+  let [authData, ] = useUserContext()
 
   return (
     <div className="app">

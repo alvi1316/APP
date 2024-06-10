@@ -18,7 +18,6 @@ let execute = async (query, params) => {
         })
     
         result = await connection.execute(query, params)
-        
         await connection.end()
 
     } catch (e) {

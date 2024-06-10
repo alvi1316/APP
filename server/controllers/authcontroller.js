@@ -15,7 +15,7 @@ export let login = async (req, res) => {
     
     if(user != null) {
         delete user["password"]
-        delete user["isDeleted"]
+        delete user["isdeleted"]
         
         let token = createJWT(user)
         response(res, ResponseTypes.OK, "Login Successful", { token: token, user: user })

@@ -1,0 +1,83 @@
+.menu {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 5px 20px 5px;
+    gap: 10px;
+}
+
+.addmenu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px 5px 15px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+.addmenu .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addmenu .header h2 {
+    margin: 0px;
+}
+
+.addmenu form {
+    display: flex;
+    flex-direction: column;
+}
+
+.addmenu form input {
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+
+.menulist {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px 5px 15px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+
+.menulist .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menulist .header h2 {
+    margin: 0px;
+}
+
+.menulist table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+.menulist table td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.menulist table img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0 10px 0 10px;
+}
+
+.menulist table img:hover {
+    background-color: rgb(254, 120, 120);
+}
