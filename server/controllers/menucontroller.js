@@ -44,7 +44,7 @@ export let update = async (req, res) => {
         return
     }
 
-    if(result?.[0]?.affectedRows == 0) {
+    if(result[0].affectedRows == 0) {
         response(res, ResponseTypes.NOT_FOUND, "Failed", {})
         return
     }

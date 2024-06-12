@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken"
 import { config } from "dotenv"
 import { response, ResponseTypes } from "../utils/response.js"
+import TokenDAO from "../dao/TokenDAO.js"
 
 config()
 
@@ -19,11 +20,20 @@ export let verifyJWT = (req, res, next) => {
         return
     }
 
-    jwt.verify(token, process.env.JWT_KEY, (err, user) => {
+    jwt.verify(token, process.env.JWT_KEY, (err, data) => {
         if(err) {
             response(res, ResponseTypes.BAD_REQUEST, "BAD_REQUEST", {})
             return
         }
+
+        let verifyTokenDb = new TokenDAO().tokenIsValid(token)
+        if(!verifyTokenDb) {
+            response(res, ResponseTypes.BAD_REQUEST, "BAD_REQUEST", {})
+            return
+        }
+
+        req.JWTUser = data.user
+        req.JWTPermission = data.permission
         next()
     })
 }
