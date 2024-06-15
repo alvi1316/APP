@@ -69,5 +69,6 @@ export let get = async (req, res) => {
 
     let menuDAO =  new MenuDAO()
     let menus = await menuDAO.getById(ids)
+
     response(res, ResponseTypes.OK, "Successful", menus)
 }

@@ -9,7 +9,7 @@ import Token from "../models/Token.js"
 config()
 
 let createJWT = data => {
-    return jwt.sign(data, process.env.JWT_KEY, { expiresIn: '2d' })
+    return jwt.sign(data, process.env.JWT_KEY, { expiresIn: '172800s' })
 }
 
 export let login = async (req, res) => {
@@ -19,7 +19,7 @@ export let login = async (req, res) => {
     if(user != null) {
 
         let permissionDAO = new PermissionDAO()
-        let permissions = permissionDAO.getByUid([user.id])
+        let permissions = await permissionDAO.getByUid([user.id])
 
         delete user["password"]
         delete user["isdeleted"]
@@ -31,7 +31,8 @@ export let login = async (req, res) => {
 
         let tokenDAO = new TokenDAO()
         let tokenObj = new Token({uid: user.id, token: token}).getData()
-        let result = tokenDAO.add(tokenObj)
+        
+        let result = await tokenDAO.add(tokenObj)
         
         if(result == null || result?.[0]?.affectedRows == 0) {
             response(res, ResponseTypes.UNAUTHORISED, "Login Failed", {})

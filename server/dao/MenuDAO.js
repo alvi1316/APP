@@ -16,7 +16,7 @@ class MenuDAO {
      * Output: result || null
      */
     async add (menu) {
-        return await execute("INSERT INTO menu(name, url) VALUES(?, ?)", [menu?.name, menu?.url])
+        return await execute("INSERT INTO menu(name, url, params) VALUES(?, ?)", [menu?.name, menu?.url], menu?.params)
     }
 
     /**
@@ -24,7 +24,7 @@ class MenuDAO {
      * Output: result || null 
      */
     async update (menu) {
-        return await execute("UPDATE menu SET name=?, url=? WHERE id=? AND isDeleted = 0", [menu?.name, menu?.url, menu?.id])
+        return await execute("UPDATE menu SET name=?, url=?, params=? WHERE id=? AND isDeleted = 0", [menu?.name, menu?.url, menu?.params, menu?.id])
     }
 
     
