@@ -1,15 +1,22 @@
 import { Router } from "express";
-import { update, get, add, deleteMenu } from "../controllers/menucontroller.js";
+import { update, get, add, deleteMenu, getMenusWithReadPermissions } from "../controllers/menucontroller.js";
 import { verifyJWT } from "../middlewares/auth.js";
+import { verifyMenuPermissions } from "../middlewares/menupermissions.js";
 
 let menuRouter = Router()
 
-menuRouter.get('/:ids?', verifyJWT, get)
+menuRouter.use(verifyJWT)
 
-menuRouter.put('/', verifyJWT, update)
+menuRouter.get('/getMenusWithReadPermissions', getMenusWithReadPermissions)
 
-menuRouter.post('/', verifyJWT, add)
+menuRouter.use(verifyMenuPermissions)
 
-menuRouter.delete('/', verifyJWT, deleteMenu)
+menuRouter.get('/:ids?', get)
+
+menuRouter.put('/', update)
+
+menuRouter.post('/', add)
+
+menuRouter.delete('/', deleteMenu)
 
 export default menuRouter

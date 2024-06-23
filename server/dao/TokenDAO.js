@@ -19,7 +19,7 @@ class TokenDAO {
 
         if(token == null) return false
 
-        let result = await execute("SELECT * FROM token WHERE isDeleted = 0 AND token = '?'", [token])
+        let result = await execute("SELECT * FROM token WHERE isDeleted = 0 AND token = ?", [token])
 
         if(result == null) return false
 

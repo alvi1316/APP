@@ -16,7 +16,7 @@ class MenuDAO {
      * Output: result || null
      */
     async add (menu) {
-        return await execute("INSERT INTO menu(name, url, params) VALUES(?, ?)", [menu?.name, menu?.url], menu?.params)
+        return await execute("INSERT INTO menu(name, url, params) VALUES(?, ?, ?)", [menu?.name, menu?.url, menu?.params])
     }
 
     /**
@@ -30,7 +30,7 @@ class MenuDAO {
     
     /**
      *  Input: array || null 
-     *  Output: array
+     *  Output: array of menus
      */
     async getById (ids) {
 
@@ -50,6 +50,25 @@ class MenuDAO {
 
         return rows
         
+    }
+
+    /**
+     *  Input: name as string 
+     *  Output: array of menus
+     */
+    async getByName (name) {
+
+        let result = null
+
+        result = await execute("SELECT * FROM menu WHERE name = ? AND isdeleted = 0", [name])
+
+        if(result == null) return []
+        let rows = []
+        for(let row of result[0]) {
+            rows.push(new Menu(row).getData())
+        }
+
+        return rows
     }
 
 }

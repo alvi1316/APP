@@ -20,13 +20,13 @@ export let verifyJWT = (req, res, next) => {
         return
     }
 
-    jwt.verify(token, process.env.JWT_KEY, (err, data) => {
+    jwt.verify(token, process.env.JWT_KEY, async (err, data) => {
         if(err) {
             response(res, ResponseTypes.BAD_REQUEST, "BAD_REQUEST", {})
             return
         }
 
-        let verifyTokenDb = new TokenDAO().tokenIsValid(token)
+        let verifyTokenDb = await new TokenDAO().tokenIsValid(token)
         if(!verifyTokenDb) {
             response(res, ResponseTypes.BAD_REQUEST, "BAD_REQUEST", {})
             return

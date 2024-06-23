@@ -10,4 +10,5 @@ authRouter.post('/login', login)
 authRouter.post('/verify', verifyJWT, (req, res) => {
     response(res, ResponseTypes.ACCEPTED, "Verification Successful", {})
 })
+
 export default authRouter

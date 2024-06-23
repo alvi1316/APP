@@ -9,16 +9,13 @@ import Shift from '../components/Shift.js'
 import Employes from '../components/Employes.js'
 import Attendance from '../components/Attendance.js'
 import Menu from '../components/Menu.js'
-import { useUserContext } from '../providers/UserProvider.js'
-import { useEffect, useState } from 'react'
-import { SERVER_URL, CLIENT_URL } from '../utils/Constants.js'
+import { CLIENT_URL } from '../utils/Constants.js'
 import NotFound from '../components/NotFound.js'
+import { useMenuContext } from '../providers/MenuProvider.js'
 
 function HomePage () {
 
-    let [authData, ] = useUserContext()
-    let permissionIdParams = (authData?.permission ?? []).filter(e => e.read === 1).map(e => e.id).join('&ids=')
-    let [pages, setPages] = useState([])
+    let [menus, ] = useMenuContext()
 
     let pageMapping = {
         '/' : <Landing/>,
@@ -29,26 +26,6 @@ function HomePage () {
         '/attendance/': <Attendance/>,
         '/Menu/': <Menu/>,
     }
-
-    useEffect(() => {
-        fetch(SERVER_URL+`/menu/?ids=${permissionIdParams}`,{
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "authorization": `bearer ${authData?.token}`
-            }
-        })
-        .then(res => {
-            if(res.status !== 200) {
-                throw new Error()
-            }
-            return res.json()
-        })
-        .then(data => {
-            setPages(Array.isArray(data?.data) ? data.data : [])
-        })
-        .catch(e => {})
-    }, [authData?.token, permissionIdParams])
     
     return (
         <div className='homepage'>
@@ -57,9 +34,9 @@ function HomePage () {
                 <MenuBar/>
                 <Routes>
                     [...{
-                            pages.map(e => {
-                                let pathRoute = e.url.replace(`${CLIENT_URL}/landing`, "")+e.params
-                                return <Route key={e.id} path={pathRoute} element={pageMapping[pathRoute]}/>
+                            menus.map(e => {
+                                let pathRoute = e.url.replace(`${CLIENT_URL}/landing`, "")
+                                return <Route key={e.id} path={pathRoute+e.params} element={pageMapping[pathRoute]}/>
                             })
                         },
                         <Route path="*" element={<NotFound/>}/>

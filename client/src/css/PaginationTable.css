@@ -9,13 +9,19 @@
     gap: 10px;
 }
 
-.list .header {
+.list .headline {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.list .header h3 {
+.list .headline h3 {
     margin: 0px;
+}
+
+.list .headline select {
+    margin-left: 10px;
+    height: 20px;
 }
 
 .list table {

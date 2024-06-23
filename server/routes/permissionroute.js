@@ -4,5 +4,8 @@ import { getByUid } from "../controllers/permissioncontroller.js"
 
 let permissionRouter = Router()
 
-permissionRouter.get('/', verifyJWT, getByUid)
+permissionRouter.use(verifyJWT)
+
+permissionRouter.get('/', getByUid)
+
 export default permissionRouter

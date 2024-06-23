@@ -29,7 +29,7 @@ class PermissionDAO {
 
     /**
      *  Input: array 
-     *  Output: array
+     *  Output: array of Permissions
      */
     async getByUid (uids) {
 

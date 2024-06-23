@@ -1,13 +1,11 @@
-import MenuDAO from "../dao/MenuDAO.js"
-import PermissionDAO from "../dao/PermissionDAO.js"
-import Menu from "../models/Menu.js"
-import Permission from "../models/Permission.js"
+import CompanyDAO from "../dao/CompanyDAO.js"
+import Company from "../models/Company.js"
 
 import { response, ResponseTypes } from "../utils/response.js"
 
-export let deleteMenu = async (req, res) => {
-    let menuDAO =  new MenuDAO()
-    let result = await  menuDAO.deleteById(req.body.id)
+export let deleteCompany = async (req, res) => {
+    let companyDAO =  new CompanyDAO()
+    let result = await  companyDAO.deleteById(req.body.id)
 
     if(result == null) {
         response(res, ResponseTypes.BAD_REQUEST, "Failed", {})
@@ -19,9 +17,9 @@ export let deleteMenu = async (req, res) => {
 }
 
 export let add = async (req, res) => {
-    let menuDAO =  new MenuDAO()
-    let menu = new Menu(req.body).getData()
-    let result = await menuDAO.add(menu)
+    let companyDAO =  new CompanyDAO()
+    let company = new Company(req.body).getData()
+    let result = await companyDAO.add(company)
     if(result == null) {
         response(res, ResponseTypes.BAD_REQUEST, "Failed", {})
         return
@@ -32,15 +30,15 @@ export let add = async (req, res) => {
         return
     }
 
-    let rows = await menuDAO.getById([result?.[0]?.insertId])
+    let rows = await companyDAO.getById([result?.[0]?.insertId])
 
     response(res, ResponseTypes.OK, "Successful", rows[0])
 }
 
 export let update = async (req, res) => {
-    let menuDAO =  new MenuDAO()
-    let menu = new Menu(req.body).getData()
-    let result = await menuDAO.update(menu)
+    let companyDAO =  new CompanyDAO()
+    let company = new Company(req.body).getData()
+    let result = await companyDAO.update(company)
     if(result == null) {
         response(res, ResponseTypes.BAD_REQUEST, "Failed", {})
         return
@@ -69,20 +67,8 @@ export let get = async (req, res) => {
         ids = [ids]  
     }
 
-    let menuDAO =  new MenuDAO()
-    let menus = await menuDAO.getById(ids)
+    let companyDAO =  new CompanyDAO()
+    let company= await companyDAO.getById(ids)
 
-    response(res, ResponseTypes.OK, "Successful", menus)
-}
-
-export let getMenusWithReadPermissions = async (req, res) => {
-
-    let permissionDAO = new PermissionDAO()
-    let permissions = await permissionDAO.getByUid([req.JWTUser.id])
-    let menuIds = permissions.filter(e => e.read == 1).map(e => e.mid)
-    
-    let menuDAO = new MenuDAO()
-    let menus = await menuDAO.getById(menuIds)
-
-    response(res, ResponseTypes.OK, "Successful", menus)
+    response(res, ResponseTypes.OK, "Successful", company)
 }

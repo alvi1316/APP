@@ -163,6 +163,7 @@ function Menu() {
         e.preventDefault()
         let name = e.target.children.name.value
         let url = e.target.children.url.value
+        let params = e.target.children.params.value
         fetch(SERVER_URL+'/menu/',{
             method: "POST",
             headers: {
@@ -171,7 +172,8 @@ function Menu() {
             },
             body: JSON.stringify({
                 name: name,
-                url: url
+                url: url,
+                params: params
             })
         })
         .then(res => {
@@ -199,8 +201,10 @@ function Menu() {
                 <form onSubmit={handleOnSubmit}>
                     <label>Menu Name</label>
                     <input placeholder='Menu Name' name='name' type='text'/>
-                    <label>Menu</label>
+                    <label>Menu Url</label>
                     <input placeholder='Menu Url' name='url' type='text'/>
+                    <label>Menu Params</label>
+                    <input placeholder='Menu Params' name='params' type='text'/>
                     <input type='submit' value="Add"/>
                 </form>
             </div>

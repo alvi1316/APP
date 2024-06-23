@@ -1,7 +1,8 @@
 import express from "express"
+import cors from 'cors'
 import authRouter from "./routes/authroute.js"
 import menuRouter from "./routes/menuroute.js"
-import cors from 'cors'
+import companyRouter from "./routes/companyroute.js"
 
 const app = express()
 
@@ -14,5 +15,7 @@ app.use(express.json())
 app.use('/auth', authRouter)
 
 app.use('/menu', menuRouter)
+
+app.use('/company', companyRouter)
 
 app.listen(PORT, () => console.log(`SERVER IS RUNNING ON http://127.0.0.1:${PORT}`))

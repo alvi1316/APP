@@ -2,7 +2,6 @@ import '../css/MenuBar.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useMenuContext } from '../providers/MenuProvider'
-import { useUserContext } from '../providers/UserProvider'
 
 function MenuBarClosed(prop) {
     return (
@@ -12,13 +11,7 @@ function MenuBarClosed(prop) {
 
 function MenuBarOpen(prop) {
 
-    let [authData, ] = useUserContext()
-
-    let permissions = authData?.permission ?? []
-    let permissionObj = {}
-    permissions.forEach(e => {
-        permissionObj[e.id] = e
-    })
+    let [menus, ] = useMenuContext()
 
     return (
         <>  
@@ -27,14 +20,7 @@ function MenuBarOpen(prop) {
                     <h2>Menu</h2>
                     <img onClick={prop.toggleMenu} alt='breadcrumbwhite' src={require('../images/leftarrow.png')}/>
                 </div>
-                {
-                    prop?.menuList?.map((e) => {
-                        if(permissionObj[e.id]?.read === 1) {
-                            return <Link key={e.id} to={e.url}><div className='menuitem'>{e.name}</div></Link>
-                        }
-                        return null
-                    })
-                }
+                { menus.map((e) => <Link key={e.id} to={e.url}><div className='menuitem'>{e.name}</div></Link>) }
                 {/*
                 <Link to="/landing/"><div className='menuitem'>Home</div></Link>
                 <Link to="/landing/company/"><div className='menuitem'>Company</div></Link>

@@ -10,7 +10,7 @@ export const MenuProvider = ({ children }) => {
     let [authData, ] = useUserContext()
 
     let fetchMenus = (token) => {
-        fetch(SERVER_URL + "/menu/", {
+        fetch(SERVER_URL + "/menu/getMenusWithReadPermissions", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export const MenuProvider = ({ children }) => {
             return res.json()
         })
         .then(data => {
-            setMenus(data.data)
+            setMenus(Array.isArray(data?.data) ? data.data : [])
         })
         .catch(e => {})
     }
